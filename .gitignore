@@ -1,0 +1,11 @@
+# Licensed Tracxn data never goes in this repo
+tracxn/
+*.xlsx
+*.pkl
+dataset_tracxn*.csv
+results_*.csv
+extra*.json
+analysis/tier1.json
+__pycache__/
+.DS_Store
+.vercel

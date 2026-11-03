@@ -1,0 +1,26 @@
+period,group,signal,label,n,rate_with,rate_without,odds_ratio,lo,hi,p,q
+2025-2026,VC network,ex_vc_pe,Ex-VC / PE (any fund),36,0.2222,0.0781,2.7013,1.1336,6.4371,0.0249,0.1602
+2025-2026,Track record,prior_funded_founder,Founded a funded co. before,200,0.09,0.0794,0.7342,0.4174,1.2913,0.2834,0.5204
+2025-2026,Track record,prior_exit,Prior exit (acq. / IPO),61,0.1311,0.079,1.1956,0.5158,2.7713,0.6771,0.8785
+2025-2026,Track record,repeat_founder,Repeat founder,776,0.107,0.0668,1.2078,0.8629,1.6904,0.2711,0.5204
+2025-2026,Employer,ex_unicorn,Ex-Indian unicorn,343,0.1749,0.0638,1.9497,1.3267,2.8654,0.0007,0.0169
+2025-2026,Employer,ex_big_tech,Ex-Big Tech,237,0.1392,0.0736,1.3707,0.8725,2.1535,0.1712,0.4281
+2025-2026,Employer,ex_mbb,Ex-McKinsey / BCG / Bain,87,0.1724,0.0767,1.3492,0.6973,2.6106,0.3738,0.5841
+2025-2026,Employer,ex_ibank,Ex-investment bank,135,0.1333,0.0771,1.1902,0.6662,2.1264,0.5564,0.7728
+2025-2026,College,iit,IIT,548,0.1314,0.0644,1.5475,1.0546,2.2709,0.0256,0.1602
+2025-2026,College,top_ug_non_iit,BITS / NIT / IIIT / IISc etc.,392,0.1301,0.0702,1.6419,1.1079,2.4333,0.0135,0.1602
+2025-2026,College,elite_foreign_uni,Elite foreign university,340,0.0941,0.078,0.9756,0.576,1.6523,0.9267,0.9653
+2025-2026,College,eng_degree,Engineering / CS degree,1396,0.0967,0.0552,1.0331,0.6929,1.5403,0.8732,0.9491
+2025-2026,College,phd,PhD,146,0.0479,0.0826,0.4652,0.2,1.082,0.0756,0.2901
+2025-2026,College,ca,Chartered Accountant,51,0.0392,0.0813,0.7982,0.1856,3.4321,0.762,0.8785
+2025-2026,MBA,any_mba,Any MBA,705,0.1121,0.0664,1.3544,0.9594,1.9121,0.0846,0.2901
+2025-2026,MBA,mba_iim_abc,MBA: IIM A / B / C,145,0.1586,0.0751,1.433,0.8352,2.4589,0.1915,0.4353
+2025-2026,MBA,mba_iim_other,MBA: other IIMs,76,0.1711,0.0773,1.6406,0.8284,3.2494,0.1556,0.4281
+2025-2026,MBA,mba_isb,MBA: ISB,61,0.1311,0.079,1.133,0.4901,2.6195,0.7703,0.8785
+2025-2026,MBA,mba_elite_foreign,MBA: HBS / Stanford / Wharton / INSEAD etc.,76,0.1579,0.0777,1.5708,0.6788,3.6349,0.2914,0.5204
+2025-2026,MBA,mba_top_indian_other,MBA: XLRI / FMS / SPJIMR / MDI etc.,130,0.1385,0.0769,1.7398,0.978,3.095,0.0595,0.2901
+2025-2026,MBA,mba_other,MBA: everywhere else,312,0.0769,0.0809,1.0737,0.6621,1.7411,0.773,0.8785
+2025-2026,Team,technical_role,Technical co-founder (CTO),402,0.107,0.0747,1.1652,0.7625,1.7808,0.4797,0.7055
+2025-2026,Team,solo_founder,Solo founder,589,0.0594,0.0876,0.99,0.6279,1.5609,0.9654,0.9654
+2025-2026,Team,three_plus_founders,3+ founders,750,0.1,0.0709,1.209,0.827,1.7676,0.3273,0.5456
+2025-2026,Team,no_elite_credential,No elite credential at all,1133,0.0485,0.1112,0.7168,0.4862,1.0569,0.0928,0.2901

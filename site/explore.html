@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Founder Marksheet Explorer</title>
+<meta name="description" content="Explore which founder backgrounds go with a tier-1 VC lead in India, by city, sector and period.">
+<meta property="og:title" content="Founder Marksheet Explorer">
+<meta property="og:image" content="https://founder-marksheet.vercel.app/main-chart.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+:root { --paper:#eef3ee; --sheet:#f8faf6; --ink:#1b2742; --ink-2:#4b5870; --rule:#c8d5cb; --rule-2:#dfe8e1; --pos:#1d7348; --likely:#3b67ad; --neg:#b23a2c; --none:#9aa5a3;
+  --f-display:"Young Serif",Georgia,serif; --f-body:"Public Sans",Arial,sans-serif; --f-data:"IBM Plex Mono",ui-monospace,Menlo,monospace; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --paper:#0f1519; --sheet:#151d22; --ink:#e5ebe8; --ink-2:#9fb0ab; --rule:#2c3a3c; --rule-2:#212c2f; --pos:#4fbf85; --likely:#7ea6e8; --neg:#ef7b6a; --none:#67767a; color-scheme:dark; } }
+:root[data-theme="dark"] { --paper:#0f1519; --sheet:#151d22; --ink:#e5ebe8; --ink-2:#9fb0ab; --rule:#2c3a3c; --rule-2:#212c2f; --pos:#4fbf85; --likely:#7ea6e8; --neg:#ef7b6a; --none:#67767a; color-scheme:dark; }
+* { box-sizing:border-box } body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:16px; line-height:1.5 }
+.wrap { max-width:1000px; margin:0 auto; padding-block:28px 60px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)) }
+.sheet { background:var(--sheet); border:1px solid var(--rule); border-radius:3px; padding:clamp(18px,4vw,40px); display:grid; gap:26px }
+.eyebrow { font-family:var(--f-data); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2) }
+h1 { font-family:var(--f-display); font-weight:400; font-size:clamp(30px,5vw,48px); margin:4px 0 6px; line-height:1.05 }
+.dek { margin:0; max-width:64ch } a { color:var(--likely) }
+.controls { display:flex; flex-wrap:wrap; gap:14px 20px; align-items:end; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding-block:16px }
+.controls label { display:grid; gap:4px; font-family:var(--f-data); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2) }
+select { font:inherit; font-family:var(--f-body); font-size:15px; text-transform:none; letter-spacing:0; color:var(--ink); background:var(--paper); border:1px solid var(--rule); border-radius:6px; padding:8px 10px; min-width:12rem }
+select:focus-visible { outline:2px solid var(--likely); outline-offset:2px }
+.summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-bottom:1px solid var(--rule) }
+.summary div { padding:4px 12px 14px 0; display:grid; gap:2px; min-width:0 } .summary div + div { border-left:1px solid var(--rule-2); padding-left:12px }
+.summary b { font-family:var(--f-data); font-weight:500; font-size:22px; font-variant-numeric:tabular-nums } .summary span { font-size:13px; color:var(--ink-2) }
+@media (max-width:640px) { .summary { grid-template-columns:repeat(2,minmax(0,1fr)) } .summary div:nth-child(3) { border-left:0; padding-left:0 } }
+.tbl { overflow-x:auto } table { border-collapse:collapse; width:100%; min-width:640px; font-size:14px }
+th { text-align:left; font-family:var(--f-data); font-weight:500; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); padding:8px 10px 8px 0; border-bottom:1px solid var(--rule); cursor:pointer; white-space:nowrap }
+td { padding:7px 10px 7px 0; border-bottom:1px solid var(--rule-2); vertical-align:middle }
+td.num { font-family:var(--f-data); text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap } th.num { text-align:right }
+td.grp { font-family:var(--f-data); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); white-space:nowrap }
+.bar { position:relative; height:12px; min-width:160px } .bar i { position:absolute; top:0; bottom:0; border-radius:2px } .bar .one { position:absolute; top:-3px; bottom:-3px; border-left:1.5px solid var(--ink); left:50% }
+.k-pos { color:var(--pos) } .k-likely { color:var(--likely) } .k-neg { color:var(--neg) } .k-none { color:var(--none) }
+.note { font-size:13px; color:var(--ink-2); max-width:72ch; margin:0 }
+.empty { padding:20px 0; color:var(--ink-2) }
+</style>
+</head>
+<body>
+<div class="wrap"><article class="sheet">
+  <header>
+    <div class="eyebrow">The Founder Marksheet · Explorer</div>
+    <h1>Who gets the tier-1 cheque?</h1>
+    <p class="dek">Pick a view. Every number is an aggregate from 6,990 Indian startups with a Seed or Series A between January 2021 and October 2026 (Tracxn). Cuts with fewer than 25 startups are hidden. <a href="./">Read the full report</a> · <a href="https://github.com/anshul-tiberius/founder-marksheet">Data and code on GitHub</a></p>
+  </header>
+
+  <div class="controls">
+    <label for="view">View
+      <select id="view">
+        <option value="signals">Founder signals (all else equal)</option>
+        <option value="groups">Cities and sectors</option>
+        <option value="inside">Inside one city or sector</option>
+      </select>
+    </label>
+    <label for="period" id="period-wrap">Period
+      <select id="period"><option>2021-2026</option><option>2021-2024</option><option>2025-2026</option></select>
+    </label>
+    <label for="group" id="group-wrap" hidden>City or sector
+      <select id="group"></select>
+    </label>
+  </div>
+
+  <div class="summary" id="summary"></div>
+  <div class="tbl" id="out"></div>
+  <p class="note" id="note"></p>
+</article></div>
+
+<script>
+const $ = id => document.getElementById(id);
+function parseCSV(txt) {
+  const rows = []; let row = [], cur = '', q = false;
+  for (let i = 0; i < txt.length; i++) {
+    const c = txt[i];
+    if (q) { if (c === '"' && txt[i + 1] === '"') { cur += '"'; i++; } else if (c === '"') q = false; else cur += c; }
+    else if (c === '"') q = true; else if (c === ',') { row.push(cur); cur = ''; }
+    else if (c === '\n') { row.push(cur); rows.push(row); row = []; cur = ''; } else if (c !== '\r') cur += c;
+  }
+  if (cur || row.length) { row.push(cur); rows.push(row); }
+  const [h, ...b] = rows; return b.filter(r => r.length === h.length).map(r => Object.fromEntries(h.map((k, i) => [k, isNaN(+r[i]) || r[i] === '' ? r[i] : +r[i]])));
+}
+const get = async f => parseCSV(await (await fetch('data/' + f)).text());
+const pct = v => v === '' || v == null ? '–' : (v * 100).toFixed(1) + '%';
+const x = v => v === '' || v == null || !isFinite(v) ? '–' : (+v).toFixed(2) + '×';
+const kind = (o, q) => q < 0.05 ? (o >= 1 ? 'pos' : 'neg') : q < 0.15 ? 'likely' : 'none';
+const lg = v => Math.log(Math.min(Math.max(v, 0.25), 8));
+function bar(o, lo, hi, k) {
+  const L = v => ((lg(v) - lg(0.25)) / (lg(8) - lg(0.25)) * 100).toFixed(1) + '%';
+  return `<div class="bar" aria-hidden="true"><i style="left:${L(lo)};right:calc(100% - ${L(hi)});background:var(--${k});opacity:.3"></i><i style="left:calc(${L(o)} - 5px);width:10px;background:var(--${k})"></i><span class="one"></span></div>`;
+}
+let D = {};
+async function load() {
+  const [s1, s2, s3, groups, inside, meta] = await Promise.all([get('signals_2021-2026.csv'), get('signals_2021-2024.csv'), get('signals_2025-2026.csv'), get('groups.csv'), get('group_signals.csv'), fetch('data/meta.json').then(r => r.json())]);
+  D = { signals: { '2021-2026': s1, '2021-2024': s2, '2025-2026': s3 }, groups, inside, meta };
+  const names = [...new Set(inside.map(r => r.kind + '|' + r.name))];
+  $('group').innerHTML = ['city', 'sector'].map(k => `<optgroup label="${k === 'city' ? 'Cities' : 'Sectors'}">` + names.filter(n => n.startsWith(k)).map(n => `<option value="${n}">${n.split('|')[1]}</option>`).join('') + '</optgroup>').join('');
+  const want = decodeURIComponent((location.hash || '').slice(1));
+  const hit = names.find(n => n.split('|')[1].toLowerCase().replace(/\s+/g, '-') === want);
+  if (hit) { $('view').value = 'inside'; $('group').value = hit; }
+  render();
+}
+function summary(cells) { $('summary').innerHTML = cells.map(([b, s]) => `<div><b>${b}</b><span>${s}</span></div>`).join(''); }
+function render() {
+  const v = $('view').value; $('period-wrap').hidden = v !== 'signals'; $('group-wrap').hidden = v !== 'inside';
+  if (v === 'signals') {
+    const rows = D.signals[$('period').value]; const n = rows.length;
+    const base = rows.find(r => r.signal === 'iit');
+    summary([[D.meta.companies.toLocaleString('en-IN'), 'startups, full window'], [D.meta.founders.toLocaleString('en-IN'), 'founders'], [pct(D.meta.t1_lead_rate), 'base rate, 2021–26'], [n, 'signals shown']]);
+    $('out').innerHTML = `<table><thead><tr><th>Group</th><th>Signal</th><th class="num">Startups</th><th class="num">Tier-1 rate with</th><th>Odds (0.25× – 8×)</th><th class="num">Odds</th><th class="num">95% range</th></tr></thead><tbody>` +
+      rows.map(r => { const k = kind(r.odds_ratio, r.q); return `<tr><td class="grp">${r.group}</td><td>${r.label}</td><td class="num">${r.n.toLocaleString('en-IN')}</td><td class="num">${pct(r.rate_with)}</td><td>${bar(r.odds_ratio, r.lo, r.hi, k)}</td><td class="num k-${k}"><b>${x(r.odds_ratio)}</b></td><td class="num">${x(r.lo)}–${x(r.hi)}</td></tr>`; }).join('') + '</tbody></table>';
+    $('note').textContent = 'Odds of a tier-1 VC leading the Seed or Series A, for startups with at least one founder carrying the signal, against otherwise similar startups (one logistic model with every signal plus year, sector, city and founding-year controls). Green = clear lift, red = clear drag (q < 0.05), blue = likely (q < 0.15), grey = no clear effect. 2025–26 is early data: fewer recent rounds have a lead investor recorded.';
+  } else if (v === 'groups') {
+    const rows = [...D.groups].sort((a, b) => a.kind.localeCompare(b.kind) || b.odds_vs_rest - a.odds_vs_rest);
+    summary([[rows.filter(r => r.kind === 'city').length, 'cities with 100+ startups'], [rows.filter(r => r.kind === 'sector').length, 'sectors with 100+ startups'], [pct(D.meta.t1_lead_rate), 'base rate'], ['2021–26', 'window']]);
+    $('out').innerHTML = `<table><thead><tr><th>Type</th><th>Name</th><th class="num">Startups</th><th class="num">Tier-1 led</th><th class="num">Rate</th><th class="num">IIT share</th><th>Odds vs the rest</th><th class="num">Odds</th></tr></thead><tbody>` +
+      rows.map(r => { const k = kind(r.odds_vs_rest, r.p); return `<tr><td class="grp">${r.kind}</td><td><a href="#${r.name.toLowerCase().replace(/\s+/g, '-')}" data-g="${r.kind}|${r.name}">${r.name}</a></td><td class="num">${r.startups.toLocaleString('en-IN')}</td><td class="num">${r.tier1_led}</td><td class="num">${pct(r.tier1_rate)}</td><td class="num">${pct(r.iit_share)}</td><td>${bar(r.odds_vs_rest, r.lo, r.hi, k)}</td><td class="num k-${k}"><b>${x(r.odds_vs_rest)}</b></td></tr>`; }).join('') + '</tbody></table>';
+    $('note').textContent = 'Odds of a tier-1 lead for startups in this city or sector against everyone else, all founder signals held equal (cities also control for sector, sectors for city). Colour uses p < 0.05 for a single comparison. Click a name to look inside it.';
+    $('out').querySelectorAll('a[data-g]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); $('view').value = 'inside'; $('group').value = a.dataset.g; history.replaceState(null, '', a.getAttribute('href')); render(); }));
+  } else {
+    const g = $('group').value, [kd, name] = g.split('|');
+    const head = D.groups.find(r => r.kind === kd && r.name === name);
+    const rows = D.inside.filter(r => r.kind === kd && r.name === name).sort((a, b) => b.lift - a.lift);
+    summary(head ? [[head.startups.toLocaleString('en-IN'), 'startups'], [head.tier1_led, 'tier-1 led'], [pct(head.tier1_rate), 'tier-1 rate'], [x(head.odds_vs_rest), 'odds vs the rest']] : []);
+    $('out').innerHTML = rows.length ? `<table><thead><tr><th>Group</th><th>Signal</th><th class="num">Startups with it</th><th class="num">Rate with</th><th class="num">Rate without</th><th class="num">Raw lift</th></tr></thead><tbody>` +
+      rows.map(r => `<tr><td class="grp">${r.group}</td><td>${r.label}</td><td class="num">${r.n_with.toLocaleString('en-IN')}</td><td class="num">${pct(r.rate_with)}</td><td class="num">${pct(r.rate_without)}</td><td class="num ${r.lift >= 1.5 ? 'k-pos' : r.lift <= 0.67 ? 'k-neg' : ''}"><b>${x(r.lift)}</b></td></tr>`).join('') + '</tbody></table>'
+      : '<p class="empty">No signal in this group has 25 or more startups on both sides.</p>';
+    $('note').textContent = `Inside ${name}: share of startups whose Seed or Series A was led by a tier-1 fund, with and without each founder signal. These are raw rates with no controls, so read them as descriptive. Signals held by fewer than 25 startups (or by all but 25) are hidden.`;
+  }
+}
+['view', 'period', 'group'].forEach(id => $(id).addEventListener('change', render));
+load();
+</script>
+</body>
+</html>

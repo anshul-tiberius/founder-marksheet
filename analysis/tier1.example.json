@@ -1,0 +1,9 @@
+{
+ "_note": "Replace with the funds you treat as tier-1. Keys are display names, values are case-insensitive regexes matched against Tracxn investor names. Rename to tier1.json. staff_regex matches the same funds inside free-text employer histories (used for the ex-tier-1-staff signal).",
+ "funds": {
+  "Fund A": "^fund a( capital)?$",
+  "Fund B": "fund b ventures",
+  "Fund C": "fund c partners"
+ },
+ "staff_regex": "fund a|fund b ventures|fund c partners"
+}

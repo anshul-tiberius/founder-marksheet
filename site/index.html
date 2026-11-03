@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Which founder backgrounds go with a tier-1 VC lead in India? 6,990 Seed and Series A startups, Jan 2021 – Oct 2026.">
+<meta property="og:title" content="The Founder Marksheet">
+<meta property="og:description" content="Which founder backgrounds go with a tier-1 VC lead in India? 6,990 startups, 15,070 founders, 2021–26.">
+<meta property="og:image" content="https://founder-marksheet.vercel.app/main-chart.png">
+<meta property="og:url" content="https://founder-marksheet.vercel.app">
+<meta name="twitter:card" content="summary_large_image">
+<title>The Founder Marksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an Indian board-exam marksheet. Ruled paper, a header block, one long "subject-wise" table (the chart), then remarks. */
+:root {
+  --paper: #eef3ee;
+  --sheet: #f8faf6;
+  --ink: #1b2742;
+  --ink-2: #4b5870;
+  --rule: #c8d5cb;
+  --rule-2: #dfe8e1;
+  --pos: #1d7348;
+  --likely: #3b67ad;
+  --neg: #b23a2c;
+  --none: #9aa5a3;
+  --stamp: #b23a2c;
+  --us: #b3862b;
+  --f-display: "Young Serif", "Iowan Old Style", Georgia, serif;
+  --f-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1519; --sheet: #151d22; --ink: #e5ebe8; --ink-2: #9fb0ab; --rule: #2c3a3c; --rule-2: #212c2f;
+    --pos: #4fbf85; --likely: #7ea6e8; --neg: #ef7b6a; --none: #67767a; --stamp: #ef7b6a; --us: #d9ad55; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1519; --sheet: #151d22; --ink: #e5ebe8; --ink-2: #9fb0ab; --rule: #2c3a3c; --rule-2: #212c2f;
+  --pos: #4fbf85; --likely: #7ea6e8; --neg: #ef7b6a; --none: #67767a; --stamp: #ef7b6a; --us: #d9ad55; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 32px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.sheet { background: var(--sheet); border: 1px solid var(--rule); border-radius: 3px; padding: clamp(20px, 4vw, 44px); display: grid; gap: 40px; }
+.mast { display: grid; gap: 14px; border-bottom: 3px double var(--rule); padding-bottom: 24px; position: relative; }
+.eyebrow { font-family: var(--f-data); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(34px, 6vw, 60px); line-height: 1.02; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.dek { font-size: 19px; max-width: 62ch; margin: 0; color: var(--ink); }
+.byline { font-family: var(--f-data); font-size: 13px; color: var(--ink-2); }
+.byline a { color: inherit; }
+.stamp { position: absolute; right: 0; top: 0; border: 2px solid var(--stamp); color: var(--stamp); font-family: var(--f-data); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; padding: 6px 10px; transform: rotate(4deg); border-radius: 3px; opacity: .85; line-height: 1.3; text-align: center; }
+@media (max-width: 640px) { .stamp { position: static; justify-self: start; transform: rotate(-2deg); } }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.fact { padding: 14px 14px 14px 0; display: grid; gap: 2px; min-width: 0; }
+.fact + .fact { border-left: 1px solid var(--rule-2); padding-left: 14px; }
+.fact b { font-family: var(--f-data); font-weight: 500; font-size: 24px; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 13px; color: var(--ink-2); line-height: 1.35; }
+@media (max-width: 720px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .fact:nth-child(3) { border-left: 0; padding-left: 0; } .fact:nth-child(n+3) { border-top: 1px solid var(--rule-2); } }
+h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(24px, 3.4vw, 32px); margin: 0; line-height: 1.15; text-wrap: balance; }
+.sec { display: grid; gap: 16px; }
+.sec > p { margin: 0; max-width: 66ch; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--ink-2); align-items: center; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.legend .usk { width: 10px; height: 10px; border-radius: 0; transform: rotate(45deg); background: none; border: 1.5px solid var(--us); }
+.chart { overflow-x: auto; border-top: 1px solid var(--rule); }
+.chart svg { display: block; min-width: 640px; width: 100%; height: auto; }
+.chart text { fill: var(--ink); font-family: var(--f-body); }
+.note { font-size: 13px; color: var(--ink-2); max-width: 70ch; margin: 0; }
+.mba { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); }
+.mba > div { padding: 16px 16px 18px 0; border-bottom: 1px solid var(--rule-2); min-width: 0; display: grid; gap: 6px; align-content: start; }
+.mba > div:not(:nth-child(3n+1)) { padding-left: 16px; border-left: 1px solid var(--rule-2); }
+.mba h3 { margin: 0; font-size: 15px; font-weight: 700; }
+.mba .big { font-family: var(--f-data); font-size: 15px; font-variant-numeric: tabular-nums; }
+.mba .big em { font-style: normal; color: var(--ink-2); }
+.mba svg { width: 100%; height: auto; display: block; }
+.mba svg text { fill: var(--ink-2); font-family: var(--f-data); font-size: 10px; }
+@media (max-width: 760px) { .mba { grid-template-columns: repeat(2, minmax(0, 1fr)); } .mba > div:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; } .mba > div:nth-child(2n) { padding-left: 14px; border-left: 1px solid var(--rule-2); } }
+@media (max-width: 460px) { .mba { grid-template-columns: minmax(0, 1fr); } .mba > div:nth-child(2n) { padding-left: 0; border-left: 0; } }
+.ladder { display: grid; gap: 10px; border-top: 1px solid var(--rule); padding-top: 14px; }
+.rung { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) 4.2rem; gap: 12px; align-items: center; font-size: 14px; }
+.rung .bar { height: 14px; background: var(--rule-2); position: relative; border-radius: 1px; }
+.rung .bar span { position: absolute; inset: 0 auto 0 0; background: var(--ink); border-radius: 1px; }
+.rung .bar .base { position: absolute; top: -4px; bottom: -4px; width: 0; border-left: 1.5px dashed var(--neg); }
+.rung b { font-family: var(--f-data); font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .rung { grid-template-columns: minmax(0, 1fr) 3.6rem; } .rung .bar { grid-column: 1 / -1; grid-row: 2; } }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+@media (max-width: 720px) { .two { grid-template-columns: minmax(0, 1fr); } }
+.two > div { min-width: 0; display: grid; gap: 10px; align-content: start; }
+.two h3 { margin: 0; font-size: 15px; font-weight: 700; }
+.two p, .two li { margin: 0; font-size: 15px; }
+.two ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+table.t1 { border-collapse: collapse; font-size: 13px; width: 100%; }
+table.t1 td { border-top: 1px solid var(--rule-2); padding: 5px 8px 5px 0; vertical-align: top; }
+table.t1 td:last-child { font-family: var(--f-data); text-align: right; font-variant-numeric: tabular-nums; }
+.remarks { border: 1px solid var(--rule); padding: 18px 20px; display: grid; gap: 10px; background: var(--paper); }
+.remarks h3 { margin: 0; font-family: var(--f-data); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+.remarks p { margin: 0; max-width: 70ch; font-size: 15px; }
+a { color: var(--likely); }
+a:focus-visible { outline: 2px solid var(--likely); outline-offset: 2px; }
+</style>
+<style>body{margin:0}</style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<style>
+.shift { overflow-x: auto; border-top: 1px solid var(--rule); }
+.shift svg { display: block; min-width: 600px; width: 100%; height: auto; }
+.shift text { fill: var(--ink); font-family: var(--f-body); }
+.shift text.mono { font-family: var(--f-data); }
+.cmp { overflow-x: auto; border-top: 1px solid var(--rule); }
+table.studies { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+table.studies th { text-align: left; font-family: var(--f-data); font-weight: 500; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); padding: 10px 12px 8px 0; border-bottom: 1px solid var(--rule); }
+table.studies td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--rule-2); vertical-align: top; }
+table.studies td:first-child { min-width: 13rem; }
+table.studies .kind { font-family: var(--f-data); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+table.studies .kind.only { color: var(--ink-2); }
+table.studies .kind.cmp { color: var(--pos); }
+table.studies tr.mine td { background: var(--paper); }
+</style>
+
+<div class="wrap">
+<article class="sheet">
+  <header class="mast">
+    <div class="eyebrow">Statement of marks · India · Seed &amp; Series A · Jan 2021 – Oct 2026</div>
+    <h1>The Founder Marksheet</h1>
+    <p class="dek">Which founder backgrounds go with getting your Seed or Series A <b>led</b> by a tier-1 Indian VC, all else equal? An India version of Deedy Das's US study, with the MBA split open and the last two years broken out.</p>
+    <div class="byline">Anshul Tibrewala · November 2026 · Data: Tracxn · Inspired by <a href="https://x.com/deedydas/status/2116577618816577767">Deedy Das</a> · <a href="explore.html">Explore the data</a> · <a href="https://github.com/anshul-tiberius/founder-marksheet">Code and tables on GitHub</a></div>
+    <div class="stamp">Correlation,<br>not causation</div>
+  </header>
+
+  <div class="facts" id="facts"></div>
+
+  <section class="sec" aria-labelledby="h-chart">
+    <h2 id="h-chart">Odds of a tier-1 lead, by founder signal</h2>
+    <p>One logistic model with every signal plus controls for year, sector, city and founding year. A dot right of 1× means startups with that founder signal were more likely to land a tier-1 lead than otherwise similar startups. Lines are 95% ranges. The gold diamond is Deedy's US number for the closest matching signal.</p>
+    <div class="legend">
+      <span><i style="background:var(--pos)"></i>Clear lift (q &lt; 0.05)</span>
+      <span><i style="background:var(--likely)"></i>Likely (q &lt; 0.15)</span>
+      <span><i style="background:var(--neg)"></i>Clear drag</span>
+      <span><i style="background:var(--none)"></i>No clear effect</span>
+      <span><i class="usk"></i>US, Deedy Das</span>
+    </div>
+    <div class="chart" id="forest" role="img" aria-label="Forest plot of odds ratios by founder signal"></div>
+    <p class="note">n = startups with at least one founder carrying the signal. "Likely" uses a looser false-discovery cut than Deedy's (0.15 vs 0.10). City rows come from the same model with that city added against all other cities. US diamonds are from Deedy's first chart (4,836 startups, 2021–24); his revised run (8,525 startups, 2019–26) puts ex-top-VC at 2.83× and MBA at 0.65×.</p>
+  </section>
+
+  <section class="sec" aria-labelledby="h-shift">
+    <h2 id="h-shift">What changed in 2025–26</h2>
+    <p>The same model, run separately on rounds from 2021–24 and from 2025–26. The operator signal got stronger. The consulting signal faded. Fewer of the newer rounds have a lead investor recorded yet, so treat the right-hand dots as early reads.</p>
+    <div class="legend">
+      <span><i style="background:var(--none)"></i>2021–24</span>
+      <span><i style="background:var(--ink)"></i>2025–26</span>
+      <span>Filled = clear in that period (q &lt; 0.05)</span>
+    </div>
+    <div class="shift" id="shift" role="img" aria-label="Odds ratios for selected signals, 2021–24 versus 2025–26"></div>
+    <p class="note" id="shift-note"></p>
+  </section>
+
+  <section class="sec" aria-labelledby="h-mba">
+    <h2 id="h-mba">The MBA question, opened up</h2>
+    <p>Deedy found "any MBA" at 0.60× in the US. In India an MBA is no penalty. The brand still loses most of its edge once you account for what usually comes with it. Each panel follows one MBA type from the raw gap to the fully controlled number.</p>
+    <div class="mba" id="mba"></div>
+    <p class="note">Steps: raw → plus IIT and engineering degree → plus McKinsey/BCG/Bain, unicorn, Big Tech and investment-bank experience → plus city, year and founding year. MBA types are not exclusive. A founder can hold two.</p>
+  </section>
+
+  <section class="sec" aria-labelledby="h-ladder">
+    <h2 id="h-ladder">The credential ladder</h2>
+    <p>Raw share of startups whose Seed or Series A was led by a tier-1 fund, by what the founding team has on paper. The dashed line is the base rate.</p>
+    <div class="ladder" id="ladder"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-cmp">
+    <h2 id="h-cmp">How this compares with other studies</h2>
+    <p>Most published work on Indian founders counts the backgrounds of people who already won: unicorn and soonicorn founders. That tells you who is at the top, not what got them funded, because there is no group of founders who didn't make it to compare against. I couldn't find another India study with a comparison group.</p>
+    <div class="cmp">
+      <table class="studies">
+        <thead><tr><th>Study</th><th>Who it covers</th><th>What it found</th><th>Design</th></tr></thead>
+        <tbody>
+          <tr class="mine"><td><b>This study</b><br><span class="note">Tracxn, Nov 2026</span></td><td>6,990 startups with a Seed or Series A, 2021–Oct 2026</td><td>IIT founders: 23% of all funded startups, 42% of tier-1-led ones. No elite credential: 50% of all, 25% of tier-1-led.</td><td><span class="kind cmp">Has comparison group</span></td></tr>
+          <tr><td><a href="https://x.com/deedydas/status/2116577618816577767">Deedy Das</a><br><span class="note">Harmonic data, Oct–Nov 2026</span></td><td>4,836 US startups, 2021–24; revised to 8,525, 2019–26</td><td>Ex-top-VC staff 3.0× (revised 2.83×). Any MBA 0.60× (revised 0.65×). Top university 1.41×.</td><td><span class="kind cmp">Has comparison group</span></td></tr>
+          <tr><td>TheKredible, via Entrackr<br><span class="note">Dec 2023</span></td><td>262 unicorn founders</td><td>44% from IITs (IIT Delhi 34, Bombay 29, Kanpur 16). 46 hold an IIM master's (about 17.5%). ISB 10. Foreign universities 42.</td><td><span class="kind only">Winners only</span></td></tr>
+          <tr><td><a href="https://inc42.com/features/now-non-iit-iim-graduates-at-the-helm-of-indian-unicorns-growth-story/">Inc42 Soonicorn Report</a><br><span class="note">Apr 2024</span></td><td>213 soonicorn founders; 278 unicorn founders</td><td>Over 60% of soonicorn founders are not from an IIT and over 77% have no IIM. About 80% hold a BTech/BE. Unicorn founders: 42% IIT. Women: 7% of soonicorn founders.</td><td><span class="kind only">Winners only</span></td></tr>
+          <tr><td>ASK Private Wealth–Hurun India Future Unicorn Index<br><span class="note">Sep 2025</span></td><td>343 founders of 73 unicorns and 150 future unicorns</td><td>IIT Delhi tops undergraduate degrees (42 founders). IIM Ahmedabad tops postgraduate (27). Bengaluru has 26 unicorns and 41 future unicorns, against Delhi NCR's 12 and 31 and Mumbai's 11 and 28.</td><td><span class="kind only">Winners only</span></td></tr>
+          <tr><td><a href="https://indiafintech.substack.com/p/anatomy-of-a-unicorn-founder-the">Abhishek Kumar, "The Credential Illusion"</a><br><span class="note">Aug 2026</span></td><td>About 260 unicorn founders, pieced together from trackers</td><td>About 85% studied engineering at a top school. 60% built a unicorn on their first attempt. Argues credentials get you the first meeting, not the outcome. Notes that the lift from an IIT tag has never been published.</td><td><span class="kind only">Winners only</span></td></tr>
+          <tr><td>Tracxn Women Co-Founders report; DealStreetAsia; Arise Ventures<br><span class="note">Mar 2026</span></td><td>Indian startups with women co-founders, 2025</td><td>About $1.0B raised in 2025 across 405 rounds (Tracxn). 11.6% of private capital (DealStreetAsia). Women-only teams get about 2.3% of VC funding, mixed teams about 23% (Arise).</td><td><span class="kind only">Funding share</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Read together: IITs make up about a quarter of funded founding teams, about four in ten tier-1-led teams, and about four in ten unicorn founders. The filtering happens early, at the first institutional cheque, more than at the later stages. That's an inference across datasets, not a like-for-like comparison. Bengaluru's lead in the Hurun counts matches the 1.9× Bengaluru effect here.</p>
+  </section>
+
+  <section class="two" aria-label="How India differs">
+    <div>
+      <h3>Where India differs from the US</h3>
+      <ul>
+        <li><b>The MBA isn't a red flag here.</b> US 0.60×. India about 1.2× overall, about 1× for generic MBAs. Indian VCs don't penalise it. They just don't pay much for it on its own.</li>
+        <li><b>Consulting counts for more, for now.</b> Ex-McKinsey/BCG/Bain is about 2.5× over the full window, against 1.29× in the US. It weakened in 2025–26.</li>
+        <li><b>The insider edge is bigger.</b> Ex tier-1 VC staff is the top signal in both countries: about 5× here, 3.0× there. Only 37 startups have it, so the range is wide.</li>
+        <li><b>Your address matters.</b> A Bengaluru startup is about 1.9× likelier to get a tier-1 lead than an otherwise similar one elsewhere. Delhi NCR is 0.65×. Mumbai is flat.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>What counts as tier-1</h3>
+      <p>The 15 Indian venture funds that most often lead Seed and Series A rounds. Accelerators, angel networks and debt funds are not counted. The list isn't published, so the study stays about founders, not funds. My own employer isn't on it.</p>
+    </div>
+  </section>
+
+  <section class="two" aria-label="Method and limits">
+    <div>
+      <h3>Method</h3>
+      <ul>
+        <li><b>Universe:</b> every India-based company with a Seed or Series A round dated 1 Jan 2021 to 2 Nov 2026 in Tracxn: 15,224 rounds, 8,434 companies.</li>
+        <li><b>Kept:</b> 6,990 companies where Tracxn describes at least one founder: 15,070 founders.</li>
+        <li><b>Outcome:</b> at least one of those rounds had a tier-1 fund marked as lead investor (570 companies, 8.2%).</li>
+        <li><b>Signals:</b> "any founder has X", coded from Tracxn's founder profiles (education, past employers) and its Team Background and Founder Highlights tags.</li>
+        <li><b>Model:</b> one logit with all signals and controls. Nested signals (any MBA, any VC/PE, repeat founder, no elite credential) are swapped in one at a time. q-values are Benjamini–Hochberg. Signals held by fewer than 25 startups are dropped, as in Deedy's study.</li>
+        <li><b>Periods:</b> the 2021–24 and 2025–26 runs use only rounds inside each window, for both the outcome and the controls.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limits</h3>
+      <ul>
+        <li><b>Correlation, not causation.</b> Credentials travel with networks, cities and sectors. The model controls for some of this, not all.</li>
+        <li><b>Recent data is thinner.</b> 75% of 2025–26 startups have a lead investor recorded, against 84% for 2021–24. Some recent tier-1 leads are probably still missing.</li>
+        <li><b>Missing profiles count as "no".</b> Founders whose education Tracxn doesn't record are treated as not having the signal, which biases effects toward 1×.</li>
+        <li><b>Coded from text.</b> Signals are parsed from profile text with rules, then spot-checked by hand. Expect a few miscodes.</li>
+        <li><b>No gender field.</b> Tracxn's company export has no founder gender, so this study can't test it. The women-founder funding numbers above show why that gap matters.</li>
+        <li><b>Robustness:</b> results barely move when the outcome is "any tier-1 participation" or when the sample is limited to rounds with named leads.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="remarks">
+    <h3>Remarks</h3>
+    <p>The paper that gets you in the room still matters in Indian venture. But it matters through who you've worked for and who you know. The degree doesn't do much on its own. Half of all funded startups here had no elite credential on the founding team. Only a quarter of the tier-1-led ones did. In the last two years, having built inside a unicorn has started to count for more than having advised one.</p>
+  </div>
+</article>
+</div>
+
+<script>
+const DATA = {"rows": [{"k": "ex_t1_vc", "l": "Ex tier-1 VC staff", "g": "VC network", "n": 37, "rw": 0.4865, "o": 5.066, "lo": 2.43, "hi": 10.564, "q": 0.0001, "us": 3.0}, {"k": "ex_vc_pe", "l": "Ex-VC / PE (any fund)", "g": "VC network", "n": 119, "rw": 0.2269, "o": 1.901, "lo": 1.169, "hi": 3.09, "q": 0.033, "us": null}, {"k": "prior_funded_founder", "l": "Founded a funded co. before", "g": "Track record", "n": 601, "rw": 0.1248, "o": 1.021, "lo": 0.765, "hi": 1.364, "q": 0.8859, "us": null}, {"k": "prior_exit", "l": "Prior exit (acq. / IPO)", "g": "Track record", "n": 185, "rw": 0.1946, "o": 1.729, "lo": 1.131, "hi": 2.643, "q": 0.033, "us": 1.11}, {"k": "repeat_founder", "l": "Repeat founder", "g": "Track record", "n": 2531, "rw": 0.1122, "o": 1.26, "lo": 1.041, "hi": 1.526, "q": 0.0464, "us": 0.89}, {"k": "ex_unicorn", "l": "Ex-Indian unicorn", "g": "Employer", "n": 1008, "rw": 0.1806, "o": 1.644, "lo": 1.32, "hi": 2.046, "q": 0.0001, "us": 1.36}, {"k": "ex_big_tech", "l": "Ex-Big Tech", "g": "Employer", "n": 736, "rw": 0.1481, "o": 1.502, "lo": 1.169, "hi": 1.929, "q": 0.0064, "us": 1.39}, {"k": "ex_mbb", "l": "Ex-McKinsey / BCG / Bain", "g": "Employer", "n": 218, "rw": 0.2661, "o": 2.477, "lo": 1.712, "hi": 3.584, "q": 0.0, "us": 1.29}, {"k": "ex_ibank", "l": "Ex-investment bank", "g": "Employer", "n": 485, "rw": 0.1381, "o": 1.126, "lo": 0.828, "hi": 1.53, "q": 0.5321, "us": 1.22}, {"k": "iit", "l": "IIT", "g": "College", "n": 1614, "rw": 0.1499, "o": 1.527, "lo": 1.234, "hi": 1.889, "q": 0.0005, "us": null}, {"k": "top_ug_non_iit", "l": "BITS / NIT / IIIT / IISc etc.", "g": "College", "n": 1127, "rw": 0.1224, "o": 1.228, "lo": 0.974, "hi": 1.548, "q": 0.172, "us": null}, {"k": "elite_foreign_uni", "l": "Elite foreign university", "g": "College", "n": 1036, "rw": 0.1042, "o": 1.144, "lo": 0.86, "hi": 1.522, "q": 0.4863, "us": 1.1}, {"k": "eng_degree", "l": "Engineering / CS degree", "g": "College", "n": 3986, "rw": 0.1066, "o": 1.344, "lo": 1.069, "hi": 1.689, "q": 0.033, "us": 1.45}, {"k": "phd", "l": "PhD", "g": "College", "n": 357, "rw": 0.0644, "o": 0.698, "lo": 0.431, "hi": 1.129, "q": 0.2633, "us": 0.75}, {"k": "ca", "l": "Chartered Accountant", "g": "College", "n": 151, "rw": 0.0464, "o": 0.626, "lo": 0.281, "hi": 1.394, "q": 0.363, "us": null}, {"k": "any_mba", "l": "Any MBA", "g": "MBA", "n": 2184, "rw": 0.1081, "o": 1.19, "lo": 0.976, "hi": 1.451, "q": 0.172, "us": 0.6}, {"k": "mba_iim_abc", "l": "MBA: IIM A / B / C", "g": "MBA", "n": 450, "rw": 0.1444, "o": 1.136, "lo": 0.83, "hi": 1.556, "q": 0.5321, "us": null}, {"k": "mba_iim_other", "l": "MBA: other IIMs", "g": "MBA", "n": 261, "rw": 0.1456, "o": 1.319, "lo": 0.895, "hi": 1.943, "q": 0.2633, "us": null}, {"k": "mba_isb", "l": "MBA: ISB", "g": "MBA", "n": 190, "rw": 0.1579, "o": 1.322, "lo": 0.848, "hi": 2.06, "q": 0.3339, "us": null}, {"k": "mba_elite_foreign", "l": "MBA: HBS / Stanford / Wharton / INSEAD etc.", "g": "MBA", "n": 247, "rw": 0.1457, "o": 1.071, "lo": 0.666, "hi": 1.722, "q": 0.8073, "us": 1.28}, {"k": "mba_top_indian_other", "l": "MBA: XLRI / FMS / SPJIMR / MDI etc.", "g": "MBA", "n": 328, "rw": 0.125, "o": 1.526, "lo": 1.052, "hi": 2.213, "q": 0.0609, "us": null}, {"k": "mba_other", "l": "MBA: everywhere else", "g": "MBA", "n": 1003, "rw": 0.0708, "o": 0.94, "lo": 0.712, "hi": 1.243, "q": 0.7526, "us": null}, {"k": "technical_role", "l": "Technical co-founder (CTO)", "g": "Team", "n": 1016, "rw": 0.1142, "o": 1.198, "lo": 0.932, "hi": 1.539, "q": 0.2633, "us": 0.9}, {"k": "solo_founder", "l": "Solo founder", "g": "Team", "n": 2071, "rw": 0.0541, "o": 0.963, "lo": 0.746, "hi": 1.243, "q": 0.8073, "us": 0.98}, {"k": "three_plus_founders", "l": "3+ founders", "g": "Team", "n": 2135, "rw": 0.1077, "o": 1.091, "lo": 0.879, "hi": 1.354, "q": 0.5321, "us": 1.02}, {"k": "no_elite_credential", "l": "No elite credential at all", "g": "Team", "n": 3511, "rw": 0.0404, "o": 0.571, "lo": 0.455, "hi": 0.717, "q": 0.0, "us": null}, {"k": "bengaluru", "l": "Based in Bengaluru", "g": "Location", "n": 2056, "rw": 0.1406, "o": 1.944, "lo": 1.607, "hi": 2.352, "q": 0.0, "us": null}, {"k": "mumbai", "l": "Based in Mumbai", "g": "Location", "n": 1088, "rw": 0.0689, "o": 0.969, "lo": 0.737, "hi": 1.274, "q": 1, "us": null}, {"k": "delhi_ncr", "l": "Based in Delhi NCR", "g": "Location", "n": 1686, "rw": 0.0682, "o": 0.651, "lo": 0.517, "hi": 0.819, "q": 0.0008, "us": null}], "meta": {"companies": 6990, "founders": 15070, "t1_lead": 570, "t1_lead_rate": 0.0815450643776824, "t1_any": 785, "lead_info_rate": 0.7991416309012875, "years": {"2021": 2114, "2022": 1594, "2023": 989, "2024": 939, "2025": 731, "2026": 402, "na": 221}}, "extra": {"cities": {"bengaluru": {"n": 2056, "rate": 0.14056420233463035, "o": 1.9443776382678402, "lo": 1.6071612028069615, "hi": 2.352349218978824, "p": 7.78863164965297e-12}, "mumbai": {"n": 1088, "rate": 0.06893382352941177, "o": 0.9689132030403718, "lo": 0.7366538899269858, "hi": 1.2744014629706255, "p": 0.8213137300417371}, "delhi_ncr": {"n": 1686, "rate": 0.06820877817319099, "o": 0.6508413754896357, "lo": 0.5169459806428633, "hi": 0.8194173316184172, "p": 0.00025739171376981744}}, "mba_decomp": {"mba_iim_abc": {"raw": 2.017629402986857, "+IIT/eng": 1.5733345997765746, "+McKinsey/unicorn/bigtech": 1.2039127503619758, "+city/year": 1.1376446201470054}, "mba_isb": {"raw": 2.173698151697265, "+IIT/eng": 1.8391743071031768, "+McKinsey/unicorn/bigtech": 1.2560119189176184, "+city/year": 1.2849238446919342}, "mba_elite_foreign": {"raw": 1.9842981518866336, "+IIT/eng": 1.7594741101433338, "+McKinsey/unicorn/bigtech": 1.3243164191212669, "+city/year": 1.233572341201638}, "mba_iim_other": {"raw": 1.9854084367081466, "+IIT/eng": 1.6491984164106455, "+McKinsey/unicorn/bigtech": 1.389225919999289, "+city/year": 1.3912411355768273}, "mba_top_indian_other": {"raw": 1.6564867758370931, "+IIT/eng": 1.6650553228606277, "+McKinsey/unicorn/bigtech": 1.4071718416585477, "+city/year": 1.5222229563264653}, "mba_other": {"raw": 0.8388387588582541, "+IIT/eng": 0.9124654980601866, "+McKinsey/unicorn/bigtech": 0.8791297612025684, "+city/year": 0.9446042086102842}, "any_mba": {"raw": 1.6225650573634416, "+IIT/eng": 1.511161819757337, "+McKinsey/unicorn/bigtech": 1.2164352663817184, "+city/year": 1.2375320236495249}}, "ladder": {"none": [0.04044431785816007, 3511], "mba_no_iit": [0.08529048207663782, 1618], "all": [0.0815450643776824, 6990], "iit_no_mba": [0.13740458015267176, 1048], "iit_mba": [0.17314487632508835, 566], "iit_mbb": [0.28225806451612906, 124], "ex_t1": [0.4864864864864865, 37], "ex_unicorn": [0.18055555555555555, 1008]}, "shares": {"iit_all": 0.23090128755364808, "iit_led": 0.4245614035087719, "noelite_all": 0.5022889842632332, "noelite_led": 0.24912280701754386}}, "early": {"ex_t1_vc": {"k": "ex_t1_vc", "l": "Ex tier-1 VC staff", "g": "VC network", "n": 31, "rw": 0.4516, "o": 4.534, "lo": 1.992, "hi": 10.318, "q": 0.0016, "us": 3.0}, "ex_vc_pe": {"k": "ex_vc_pe", "l": "Ex-VC / PE (any fund)", "g": "VC network", "n": 107, "rw": 0.1869, "o": 1.63, "lo": 0.936, "hi": 2.839, "q": 0.244, "us": null}, "prior_funded_founder": {"k": "prior_funded_founder", "l": "Founded a funded co. before", "g": "Track record", "n": 494, "rw": 0.1215, "o": 1.028, "lo": 0.744, "hi": 1.422, "q": 0.8663, "us": null}, "prior_exit": {"k": "prior_exit", "l": "Prior exit (acq. / IPO)", "g": "Track record", "n": 154, "rw": 0.1883, "o": 1.701, "lo": 1.058, "hi": 2.734, "q": 0.0922, "us": 1.11}, "repeat_founder": {"k": "repeat_founder", "l": "Repeat founder", "g": "Track record", "n": 2123, "rw": 0.1027, "o": 1.148, "lo": 0.922, "hi": 1.43, "q": 0.5153, "us": 0.89}, "ex_unicorn": {"k": "ex_unicorn", "l": "Ex-Indian unicorn", "g": "Employer", "n": 807, "rw": 0.171, "o": 1.618, "lo": 1.259, "hi": 2.079, "q": 0.0011, "us": 1.36}, "ex_big_tech": {"k": "ex_big_tech", "l": "Ex-Big Tech", "g": "Employer", "n": 604, "rw": 0.1424, "o": 1.615, "lo": 1.218, "hi": 2.143, "q": 0.0038, "us": 1.39}, "ex_mbb": {"k": "ex_mbb", "l": "Ex-McKinsey / BCG / Bain", "g": "Employer", "n": 181, "rw": 0.2486, "o": 2.314, "lo": 1.526, "hi": 3.51, "q": 0.0007, "us": 1.29}, "ex_ibank": {"k": "ex_ibank", "l": "Ex-investment bank", "g": "Employer", "n": 423, "rw": 0.1371, "o": 1.282, "lo": 0.918, "hi": 1.788, "q": 0.3755, "us": 1.22}, "iit": {"k": "iit", "l": "IIT", "g": "College", "n": 1307, "rw": 0.1469, "o": 1.684, "lo": 1.321, "hi": 2.145, "q": 0.0004, "us": null}, "top_ug_non_iit": {"k": "top_ug_non_iit", "l": "BITS / NIT / IIIT / IISc etc.", "g": "College", "n": 911, "rw": 0.1065, "o": 1.124, "lo": 0.859, "hi": 1.472, "q": 0.6736, "us": null}, "elite_foreign_uni": {"k": "elite_foreign_uni", "l": "Elite foreign university", "g": "College", "n": 864, "rw": 0.0938, "o": 1.048, "lo": 0.752, "hi": 1.459, "q": 0.8486, "us": 1.1}, "eng_degree": {"k": "eng_degree", "l": "Engineering / CS degree", "g": "College", "n": 3188, "rw": 0.101, "o": 1.384, "lo": 1.064, "hi": 1.799, "q": 0.0568, "us": 1.45}, "phd": {"k": "phd", "l": "PhD", "g": "College", "n": 270, "rw": 0.063, "o": 0.827, "lo": 0.472, "hi": 1.447, "q": 0.7726, "us": 0.75}, "ca": {"k": "ca", "l": "Chartered Accountant", "g": "College", "n": 122, "rw": 0.0492, "o": 0.659, "lo": 0.276, "hi": 1.571, "q": 0.6736, "us": null}, "any_mba": {"k": "any_mba", "l": "Any MBA", "g": "MBA", "n": 1802, "rw": 0.0977, "o": 1.103, "lo": 0.878, "hi": 1.386, "q": 0.6736, "us": 0.6}, "mba_iim_abc": {"k": "mba_iim_abc", "l": "MBA: IIM A / B / C", "g": "MBA", "n": 371, "rw": 0.1186, "o": 0.904, "lo": 0.623, "hi": 1.312, "q": 0.8013, "us": null}, "mba_iim_other": {"k": "mba_iim_other", "l": "MBA: other IIMs", "g": "MBA", "n": 216, "rw": 0.1204, "o": 1.102, "lo": 0.696, "hi": 1.745, "q": 0.8013, "us": null}, "mba_isb": {"k": "mba_isb", "l": "MBA: ISB", "g": "MBA", "n": 161, "rw": 0.1491, "o": 1.311, "lo": 0.801, "hi": 2.146, "q": 0.6108, "us": null}, "mba_elite_foreign": {"k": "mba_elite_foreign", "l": "MBA: HBS / Stanford / Wharton / INSEAD etc.", "g": "MBA", "n": 214, "rw": 0.1355, "o": 1.099, "lo": 0.642, "hi": 1.879, "q": 0.8265, "us": 1.28}, "mba_top_indian_other": {"k": "mba_top_indian_other", "l": "MBA: XLRI / FMS / SPJIMR / MDI etc.", "g": "MBA", "n": 275, "rw": 0.0982, "o": 1.204, "lo": 0.771, "hi": 1.879, "q": 0.6736, "us": null}, "mba_other": {"k": "mba_other", "l": "MBA: everywhere else", "g": "MBA", "n": 824, "rw": 0.0667, "o": 0.968, "lo": 0.706, "hi": 1.327, "q": 0.8663, "us": null}, "technical_role": {"k": "technical_role", "l": "Technical co-founder (CTO)", "g": "Team", "n": 799, "rw": 0.1001, "o": 1.077, "lo": 0.804, "hi": 1.444, "q": 0.8013, "us": 0.9}, "solo_founder": {"k": "solo_founder", "l": "Solo founder", "g": "Team", "n": 1664, "rw": 0.0499, "o": 0.934, "lo": 0.695, "hi": 1.255, "q": 0.8013, "us": 0.98}, "three_plus_founders": {"k": "three_plus_founders", "l": "3+ founders", "g": "Team", "n": 1787, "rw": 0.0985, "o": 1.077, "lo": 0.842, "hi": 1.379, "q": 0.8011, "us": 1.02}, "no_elite_credential": {"k": "no_elite_credential", "l": "No elite credential at all", "g": "Team", "n": 2796, "rw": 0.0372, "o": 0.571, "lo": 0.439, "hi": 0.743, "q": 0.0004, "us": null}, "bengaluru": {"k": "bengaluru", "l": "Based in Bengaluru", "g": "Location", "n": 1643, "rw": 0.1309, "o": 1.829, "lo": 1.469, "hi": 2.276, "q": 0.0, "us": null}, "mumbai": {"k": "mumbai", "l": "Based in Mumbai", "g": "Location", "n": 909, "rw": 0.066, "o": 1.04, "lo": 0.765, "hi": 1.414, "q": 1, "us": null}, "delhi_ncr": {"k": "delhi_ncr", "l": "Based in Delhi NCR", "g": "Location", "n": 1365, "rw": 0.0652, "o": 0.679, "lo": 0.523, "hi": 0.882, "q": 0.0113, "us": null}}, "recent": {"ex_vc_pe": {"k": "ex_vc_pe", "l": "Ex-VC / PE (any fund)", "g": "VC network", "n": 36, "rw": 0.2222, "o": 2.701, "lo": 1.134, "hi": 6.437, "q": 0.1602, "us": null}, "prior_funded_founder": {"k": "prior_funded_founder", "l": "Founded a funded co. before", "g": "Track record", "n": 200, "rw": 0.09, "o": 0.734, "lo": 0.417, "hi": 1.291, "q": 0.5204, "us": null}, "prior_exit": {"k": "prior_exit", "l": "Prior exit (acq. / IPO)", "g": "Track record", "n": 61, "rw": 0.1311, "o": 1.196, "lo": 0.516, "hi": 2.771, "q": 0.8785, "us": 1.11}, "repeat_founder": {"k": "repeat_founder", "l": "Repeat founder", "g": "Track record", "n": 776, "rw": 0.107, "o": 1.208, "lo": 0.863, "hi": 1.69, "q": 0.5204, "us": 0.89}, "ex_unicorn": {"k": "ex_unicorn", "l": "Ex-Indian unicorn", "g": "Employer", "n": 343, "rw": 0.1749, "o": 1.95, "lo": 1.327, "hi": 2.865, "q": 0.0169, "us": 1.36}, "ex_big_tech": {"k": "ex_big_tech", "l": "Ex-Big Tech", "g": "Employer", "n": 237, "rw": 0.1392, "o": 1.371, "lo": 0.873, "hi": 2.154, "q": 0.4281, "us": 1.39}, "ex_mbb": {"k": "ex_mbb", "l": "Ex-McKinsey / BCG / Bain", "g": "Employer", "n": 87, "rw": 0.1724, "o": 1.349, "lo": 0.697, "hi": 2.611, "q": 0.5841, "us": 1.29}, "ex_ibank": {"k": "ex_ibank", "l": "Ex-investment bank", "g": "Employer", "n": 135, "rw": 0.1333, "o": 1.19, "lo": 0.666, "hi": 2.126, "q": 0.7728, "us": 1.22}, "iit": {"k": "iit", "l": "IIT", "g": "College", "n": 548, "rw": 0.1314, "o": 1.548, "lo": 1.055, "hi": 2.271, "q": 0.1602, "us": null}, "top_ug_non_iit": {"k": "top_ug_non_iit", "l": "BITS / NIT / IIIT / IISc etc.", "g": "College", "n": 392, "rw": 0.1301, "o": 1.642, "lo": 1.108, "hi": 2.433, "q": 0.1602, "us": null}, "elite_foreign_uni": {"k": "elite_foreign_uni", "l": "Elite foreign university", "g": "College", "n": 340, "rw": 0.0941, "o": 0.976, "lo": 0.576, "hi": 1.652, "q": 0.9653, "us": 1.1}, "eng_degree": {"k": "eng_degree", "l": "Engineering / CS degree", "g": "College", "n": 1396, "rw": 0.0967, "o": 1.033, "lo": 0.693, "hi": 1.54, "q": 0.9491, "us": 1.45}, "phd": {"k": "phd", "l": "PhD", "g": "College", "n": 146, "rw": 0.0479, "o": 0.465, "lo": 0.2, "hi": 1.082, "q": 0.2901, "us": 0.75}, "ca": {"k": "ca", "l": "Chartered Accountant", "g": "College", "n": 51, "rw": 0.0392, "o": 0.798, "lo": 0.186, "hi": 3.432, "q": 0.8785, "us": null}, "any_mba": {"k": "any_mba", "l": "Any MBA", "g": "MBA", "n": 705, "rw": 0.1121, "o": 1.354, "lo": 0.959, "hi": 1.912, "q": 0.2901, "us": 0.6}, "mba_iim_abc": {"k": "mba_iim_abc", "l": "MBA: IIM A / B / C", "g": "MBA", "n": 145, "rw": 0.1586, "o": 1.433, "lo": 0.835, "hi": 2.459, "q": 0.4353, "us": null}, "mba_iim_other": {"k": "mba_iim_other", "l": "MBA: other IIMs", "g": "MBA", "n": 76, "rw": 0.1711, "o": 1.641, "lo": 0.828, "hi": 3.249, "q": 0.4281, "us": null}, "mba_isb": {"k": "mba_isb", "l": "MBA: ISB", "g": "MBA", "n": 61, "rw": 0.1311, "o": 1.133, "lo": 0.49, "hi": 2.619, "q": 0.8785, "us": null}, "mba_elite_foreign": {"k": "mba_elite_foreign", "l": "MBA: HBS / Stanford / Wharton / INSEAD etc.", "g": "MBA", "n": 76, "rw": 0.1579, "o": 1.571, "lo": 0.679, "hi": 3.635, "q": 0.5204, "us": 1.28}, "mba_top_indian_other": {"k": "mba_top_indian_other", "l": "MBA: XLRI / FMS / SPJIMR / MDI etc.", "g": "MBA", "n": 130, "rw": 0.1385, "o": 1.74, "lo": 0.978, "hi": 3.095, "q": 0.2901, "us": null}, "mba_other": {"k": "mba_other", "l": "MBA: everywhere else", "g": "MBA", "n": 312, "rw": 0.0769, "o": 1.074, "lo": 0.662, "hi": 1.741, "q": 0.8785, "us": null}, "technical_role": {"k": "technical_role", "l": "Technical co-founder (CTO)", "g": "Team", "n": 402, "rw": 0.107, "o": 1.165, "lo": 0.762, "hi": 1.781, "q": 0.7055, "us": 0.9}, "solo_founder": {"k": "solo_founder", "l": "Solo founder", "g": "Team", "n": 589, "rw": 0.0594, "o": 0.99, "lo": 0.628, "hi": 1.561, "q": 0.9654, "us": 0.98}, "three_plus_founders": {"k": "three_plus_founders", "l": "3+ founders", "g": "Team", "n": 750, "rw": 0.1, "o": 1.209, "lo": 0.827, "hi": 1.768, "q": 0.5456, "us": 1.02}, "no_elite_credential": {"k": "no_elite_credential", "l": "No elite credential at all", "g": "Team", "n": 1133, "rw": 0.0485, "o": 0.717, "lo": 0.486, "hi": 1.057, "q": 0.2901, "us": null}, "bengaluru": {"k": "bengaluru", "l": "Based in Bengaluru", "g": "Location", "n": 725, "rw": 0.1393, "o": 2.155, "lo": 1.547, "hi": 3.001, "q": 0.0, "us": null}, "mumbai": {"k": "mumbai", "l": "Based in Mumbai", "g": "Location", "n": 320, "rw": 0.0688, "o": 1.033, "lo": 0.632, "hi": 1.689, "q": 1, "us": null}, "delhi_ncr": {"k": "delhi_ncr", "l": "Based in Delhi NCR", "g": "Location", "n": 553, "rw": 0.0579, "o": 0.522, "lo": 0.342, "hi": 0.796, "q": 0.0075, "us": null}}, "meta_recent": {"companies": 2302, "founders": 5108, "t1_lead": 185, "t1_lead_rate": 0.08036490008688098, "t1_any": 277, "lead_info_rate": 0.7467419635099913, "years": {"2025": 1668, "2026": 634}}, "meta_early": {"companies": 5636, "founders": 12282, "t1_lead": 430, "t1_lead_rate": 0.07629524485450674, "t1_any": 609, "lead_info_rate": 0.8353442157558553, "years": {"2021": 2114, "2022": 1594, "2023": 989, "2024": 939}}};
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const fmtX = v => (v >= 10 ? v.toFixed(0) : v.toFixed(2)) + "×";
+const pct = v => (v * 100).toFixed(1) + "%";
+
+const m = DATA.meta;
+document.getElementById("facts").innerHTML = [
+  [m.companies.toLocaleString("en-IN"), "Indian startups with a Seed or Series A, Jan 2021 – Oct 2026"],
+  [m.founders.toLocaleString("en-IN"), "founders profiled"],
+  [m.t1_lead.toLocaleString("en-IN"), "had a round led by a tier-1 fund"],
+  [pct(m.t1_lead_rate), "base rate of a tier-1 lead"],
+].map(([b, s]) => `<div class="fact"><b>${b}</b><span>${s}</span></div>`).join("");
+
+function forest() {
+  const groups = ["VC network", "Track record", "Employer", "College", "MBA", "Team", "Location"];
+  const rows = DATA.rows;
+  const W = 900, labelW = 300, nW = 60, rightW = 70, rowH = 26, headH = 30, gapH = 30;
+  const plotL = labelW + nW, plotR = W - rightW, lo = 0.25, hi = 8;
+  const x = v => plotL + (Math.log(Math.min(Math.max(v, lo), hi)) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)) * (plotR - plotL);
+  let y = headH, out = [];
+  const color = r => r.q < 0.05 ? (r.o >= 1 ? "--pos" : "--neg") : r.q < 0.15 ? "--likely" : "--none";
+  const ticks = [0.25, 0.5, 1, 2, 4, 8];
+  for (const g of groups) {
+    const gr = rows.filter(r => r.g === g);
+    if (!gr.length) continue;
+    y += gapH;
+    out.push(`<text x="0" y="${y - 8}" class="mono" font-size="11" letter-spacing="1.4" style="fill:var(--ink-2)">${g.toUpperCase()}</text>`);
+    for (const r of gr) {
+      const c = css(color(r)), cy = y + rowH / 2;
+      out.push(`<line x1="0" x2="${W}" y1="${y + rowH}" y2="${y + rowH}" stroke="${css("--rule-2")}"/>`);
+      out.push(`<text x="0" y="${cy + 4.5}" font-size="13.5">${r.l}</text>`);
+      out.push(`<text x="${labelW + nW - 10}" y="${cy + 4}" font-size="11" text-anchor="end" class="mono" style="fill:var(--ink-2)">${r.n.toLocaleString("en-IN")}</text>`);
+      out.push(`<line x1="${x(r.lo)}" x2="${x(r.hi)}" y1="${cy}" y2="${cy}" stroke="${c}" stroke-width="2" stroke-linecap="round" opacity=".55"/>`);
+      if (r.hi > hi) out.push(`<path d="M${plotR} ${cy - 4} L${plotR + 6} ${cy} L${plotR} ${cy + 4}Z" fill="${c}" opacity=".55"/>`);
+      if (r.us) { const ux = x(r.us); out.push(`<path d="M${ux} ${cy - 5} L${ux + 5} ${cy} L${ux} ${cy + 5} L${ux - 5} ${cy}Z" fill="none" stroke="${css("--us")}" stroke-width="1.5"><title>US: ${fmtX(r.us)}</title></path>`); }
+      out.push(`<circle cx="${x(r.o)}" cy="${cy}" r="5.5" fill="${c}"><title>${r.l}: ${fmtX(r.o)} (${fmtX(r.lo)}–${fmtX(r.hi)})</title></circle>`);
+      out.push(`<text x="${W}" y="${cy + 4.5}" font-size="13" text-anchor="end" class="mono" style="fill:${c}" font-weight="500">${fmtX(r.o)}</text>`);
+      y += rowH;
+    }
+  }
+  const grid = ticks.map(t => `<line x1="${x(t)}" x2="${x(t)}" y1="${headH}" y2="${y}" stroke="${t === 1 ? css("--ink") : css("--rule")}" stroke-width="${t === 1 ? 1.2 : 1}" ${t === 1 ? "" : 'stroke-dasharray="2 4"'}/>` +
+    `<text x="${x(t)}" y="${y + 18}" font-size="11" text-anchor="middle" class="mono" style="fill:var(--ink-2)">${t}×</text>`).join("");
+  const head = `<text x="${labelW + nW - 10}" y="18" font-size="11" text-anchor="end" class="mono" style="fill:var(--ink-2)">STARTUPS</text>
+    <text x="${x(0.5)}" y="18" font-size="11" text-anchor="middle" class="mono" style="fill:var(--ink-2)">← less likely</text>
+    <text x="${x(4)}" y="18" font-size="11" text-anchor="middle" class="mono" style="fill:var(--ink-2)">more likely →</text>
+    <text x="${W}" y="18" font-size="11" text-anchor="end" class="mono" style="fill:var(--ink-2)">ODDS</text>`;
+  document.getElementById("forest").innerHTML = `<svg viewBox="0 0 ${W} ${y + 40}" xmlns="http://www.w3.org/2000/svg">${grid}${head}${out.join("")}</svg>`;
+}
+
+function shift() {
+  const keys = ["ex_unicorn", "iit", "top_ug_non_iit", "ex_big_tech", "ex_mbb", "any_mba", "mba_iim_abc", "no_elite_credential", "bengaluru", "delhi_ncr"];
+  const E = DATA.early, Rc = DATA.recent;
+  const W = 900, labelW = 300, rightW = 150, rowH = 32, top = 34, lo = 0.35, hi = 4;
+  const plotL = labelW, plotR = W - rightW;
+  const x = v => plotL + (Math.log(Math.min(Math.max(v, lo), hi)) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)) * (plotR - plotL);
+  let y = top, out = [];
+  for (const k of keys) {
+    const a = E[k], b = Rc[k];
+    if (!a || !b) continue;
+    const cy = y + rowH / 2;
+    const up = b.o > a.o;
+    out.push(`<line x1="0" x2="${W}" y1="${y + rowH}" y2="${y + rowH}" stroke="${css("--rule-2")}"/>`);
+    out.push(`<text x="0" y="${cy + 5}" font-size="14">${a.l}</text>`);
+    out.push(`<line x1="${x(a.o)}" x2="${x(b.o)}" y1="${cy}" y2="${cy}" stroke="${css("--ink-2")}" stroke-width="2"/>`);
+    const dot = (r, col) => `<circle cx="${x(r.o)}" cy="${cy}" r="6" fill="${r.q < 0.05 ? col : css("--sheet")}" stroke="${col}" stroke-width="2"><title>${fmtX(r.o)} (${fmtX(r.lo)}–${fmtX(r.hi)})</title></circle>`;
+    out.push(dot(a, css("--none")), dot(b, css("--ink")));
+    out.push(`<text x="${W}" y="${cy + 5}" font-size="13" text-anchor="end" class="mono"><tspan style="fill:var(--ink-2)">${fmtX(a.o)}</tspan> → <tspan font-weight="500">${fmtX(b.o)}</tspan></text>`);
+    y += rowH;
+  }
+  const grid = [0.5, 1, 2, 4].map(t => `<line x1="${x(t)}" x2="${x(t)}" y1="${top}" y2="${y}" stroke="${t === 1 ? css("--ink") : css("--rule")}" stroke-width="${t === 1 ? 1.2 : 1}" ${t === 1 ? "" : 'stroke-dasharray="2 4"'}/><text x="${x(t)}" y="${y + 18}" font-size="11" text-anchor="middle" class="mono" style="fill:var(--ink-2)">${t}×</text>`).join("");
+  const head = `<text x="${W}" y="20" font-size="11" text-anchor="end" class="mono" style="fill:var(--ink-2)">2021–24 → 2025–26</text>`;
+  document.getElementById("shift").innerHTML = `<svg viewBox="0 0 ${W} ${y + 30}" xmlns="http://www.w3.org/2000/svg">${grid}${head}${out.join("")}</svg>`;
+  const me = DATA.meta_early, mr = DATA.meta_recent;
+  document.getElementById("shift-note").textContent = `2021–24: ${me.companies.toLocaleString("en-IN")} startups, ${pct(me.t1_lead_rate)} tier-1 led. 2025–26: ${mr.companies.toLocaleString("en-IN")} startups, ${pct(mr.t1_lead_rate)} tier-1 led. Ex tier-1 VC staff is left out because fewer than 25 startups in 2025–26 have it. In 2025–26 only the ex-unicorn and city effects clear q < 0.05.`;
+}
+
+function mba() {
+  const names = { mba_iim_abc: "IIM A / B / C", mba_isb: "ISB", mba_elite_foreign: "HBS, Stanford, Wharton, INSEAD…", mba_iim_other: "Other IIMs", mba_top_indian_other: "XLRI, FMS, SPJIMR, MDI…", mba_other: "Every other MBA" };
+  const d = DATA.extra.mba_decomp, steps = ["raw", "+IIT/eng", "+McKinsey/unicorn/bigtech", "+city/year"], lab = ["raw", "+IIT", "+job", "+city"];
+  const n = Object.fromEntries(DATA.rows.map(r => [r.k, r.n]));
+  const W = 260, H = 96, L = 8, R = 252, lo = 0.6, hi = 2.6;
+  const y = v => 10 + (Math.log(hi) - Math.log(v)) / (Math.log(hi) - Math.log(lo)) * (H - 34);
+  const x = i => L + 12 + i * (R - L - 24) / 3;
+  document.getElementById("mba").innerHTML = Object.keys(names).map(k => {
+    const v = steps.map(s => d[k][s]), end = v[3];
+    const c = css("--ink-2");
+    const pts = v.map((val, i) => `${x(i)},${y(val)}`).join(" ");
+    return `<div><h3>${names[k]}</h3>
+      <div class="big">${fmtX(v[0])} <em>raw →</em> ${fmtX(end)} <em>all else equal</em></div>
+      <svg viewBox="0 0 ${W} ${H}" aria-label="${names[k]}: ${fmtX(v[0])} raw to ${fmtX(end)} controlled">
+        <line x1="${L}" x2="${R}" y1="${y(1)}" y2="${y(1)}" stroke="${css("--ink")}" stroke-width="1"/>
+        <text x="${L}" y="${y(1) - 4}" text-anchor="start">1×</text>
+        <polyline points="${pts}" fill="none" stroke="${c}" stroke-width="2"/>
+        ${v.map((val, i) => `<circle cx="${x(i)}" cy="${y(val)}" r="${i === 3 ? 4.5 : 3}" fill="${i === 3 ? c : css("--sheet")}" stroke="${c}" stroke-width="1.5"/>`).join("")}
+        ${lab.map((t, i) => `<text x="${x(i)}" y="${H - 4}" text-anchor="middle">${t}</text>`).join("")}
+      </svg>
+      <div class="note">${n[k].toLocaleString("en-IN")} startups</div></div>`;
+  }).join("");
+}
+
+function ladder() {
+  const L = DATA.extra.ladder;
+  const rungs = [
+    ["No elite credential on the team", ...L.none],
+    ["MBA, no IIT", ...L.mba_no_iit],
+    ["Every funded startup", ...L.all],
+    ["IIT, no MBA", ...L.iit_no_mba],
+    ["IIT and an MBA", ...L.iit_mba],
+    ["Any founder ex-Indian unicorn", ...L.ex_unicorn],
+    ["IIT and ex-McKinsey/BCG/Bain", ...L.iit_mbb],
+    ["Any founder ex tier-1 VC", ...L.ex_t1],
+  ].sort((a, b) => a[1] - b[1]);
+  const max = 0.5, base = L.all[0];
+  document.getElementById("ladder").innerHTML = rungs.map(([l, v, n]) =>
+    `<div class="rung"><span>${l} <span class="note">· ${n.toLocaleString("en-IN")}</span></span>
+      <div class="bar"><span style="width:${v / max * 100}%"></span><i class="base" style="left:${base / max * 100}%"></i></div><b>${pct(v)}</b></div>`).join("");
+}
+
+function draw() { forest(); shift(); mba(); ladder(); }
+draw();
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+</script>
+
+</body>
+</html>

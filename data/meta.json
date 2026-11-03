@@ -1,0 +1,20 @@
+{
+ "companies": 6990,
+ "founders": 15070,
+ "t1_lead": 570,
+ "t1_lead_rate": 0.0815450643776824,
+ "t1_any": 785,
+ "lead_info_rate": 0.7991416309012875,
+ "years": {
+  "2021": 2114,
+  "2022": 1594,
+  "2023": 989,
+  "2024": 939,
+  "2025": 731,
+  "2026": 402,
+  "na": 221
+ },
+ "min_cell": 25,
+ "min_group": 100,
+ "source": "Tracxn export, Seed + Series A, India, 1 Jan 2021 - 2 Nov 2026"
+}

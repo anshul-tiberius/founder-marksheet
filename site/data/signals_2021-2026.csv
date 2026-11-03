@@ -1,0 +1,27 @@
+period,group,signal,label,n,rate_with,rate_without,odds_ratio,lo,hi,p,q
+2021-2026,VC network,ex_t1_vc,Ex tier-1 VC staff,37,0.4865,0.0794,5.0662,2.4296,10.564,0.0,0.0001
+2021-2026,VC network,ex_vc_pe,Ex-VC / PE (any fund),119,0.2269,0.079,1.9009,1.1692,3.0904,0.0096,0.033
+2021-2026,Track record,prior_funded_founder,Founded a funded co. before,601,0.1248,0.0775,1.0214,0.7647,1.3643,0.8859,0.8859
+2021-2026,Track record,prior_exit,Prior exit (acq. / IPO),185,0.1946,0.0785,1.7291,1.1311,2.6431,0.0114,0.033
+2021-2026,Track record,repeat_founder,Repeat founder,2531,0.1122,0.0641,1.2603,1.0408,1.5262,0.0178,0.0464
+2021-2026,Employer,ex_unicorn,Ex-Indian unicorn,1008,0.1806,0.0649,1.6437,1.3203,2.0463,0.0,0.0001
+2021-2026,Employer,ex_big_tech,Ex-Big Tech,736,0.1481,0.0737,1.5015,1.1686,1.9293,0.0015,0.0064
+2021-2026,Employer,ex_mbb,Ex-McKinsey / BCG / Bain,218,0.2661,0.0756,2.4771,1.7122,3.5836,0.0,0.0
+2021-2026,Employer,ex_ibank,Ex-investment bank,485,0.1381,0.0773,1.1255,0.828,1.5299,0.4502,0.5321
+2021-2026,College,iit,IIT,1614,0.1499,0.061,1.527,1.2343,1.889,0.0001,0.0005
+2021-2026,College,top_ug_non_iit,BITS / NIT / IIIT / IISc etc.,1127,0.1224,0.0737,1.228,0.9742,1.548,0.0821,0.172
+2021-2026,College,elite_foreign_uni,Elite foreign university,1036,0.1042,0.0776,1.144,0.86,1.5217,0.3554,0.4863
+2021-2026,College,eng_degree,Engineering / CS degree,3986,0.1066,0.0483,1.3436,1.0691,1.6887,0.0113,0.033
+2021-2026,College,phd,PhD,357,0.0644,0.0825,0.6977,0.431,1.1293,0.1429,0.2633
+2021-2026,College,ca,Chartered Accountant,151,0.0464,0.0823,0.6257,0.2808,1.3941,0.2513,0.363
+2021-2026,MBA,any_mba,Any MBA,2184,0.1081,0.0695,1.1898,0.9757,1.4508,0.086,0.172
+2021-2026,MBA,mba_iim_abc,MBA: IIM A / B / C,450,0.1444,0.0772,1.1362,0.8299,1.5556,0.4257,0.5321
+2021-2026,MBA,mba_iim_other,MBA: other IIMs,261,0.1456,0.0791,1.3187,0.8948,1.9433,0.162,0.2633
+2021-2026,MBA,mba_isb,MBA: ISB,190,0.1579,0.0794,1.3215,0.8478,2.0598,0.2183,0.3339
+2021-2026,MBA,mba_elite_foreign,MBA: HBS / Stanford / Wharton / INSEAD etc.,247,0.1457,0.0792,1.0713,0.6663,1.7222,0.7763,0.8073
+2021-2026,MBA,mba_top_indian_other,MBA: XLRI / FMS / SPJIMR / MDI etc.,328,0.125,0.0794,1.5263,1.0525,2.2134,0.0258,0.0609
+2021-2026,MBA,mba_other,MBA: everywhere else,1003,0.0708,0.0833,0.9404,0.7116,1.2427,0.6657,0.7526
+2021-2026,Team,technical_role,Technical co-founder (CTO),1016,0.1142,0.076,1.1978,0.9324,1.5387,0.1578,0.2633
+2021-2026,Team,solo_founder,Solo founder,2071,0.0541,0.0931,0.9629,0.7458,1.2431,0.7716,0.8073
+2021-2026,Team,three_plus_founders,3+ founders,2135,0.1077,0.07,1.0908,0.879,1.3536,0.4303,0.5321
+2021-2026,Team,no_elite_credential,No elite credential at all,3511,0.0404,0.123,0.571,0.455,0.7166,0.0,0.0
