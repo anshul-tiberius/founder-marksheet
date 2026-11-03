@@ -16,6 +16,7 @@
   --f-display:"Young Serif",Georgia,serif; --f-body:"Public Sans",Arial,sans-serif; --f-data:"IBM Plex Mono",ui-monospace,Menlo,monospace; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --paper:#0f1519; --sheet:#151d22; --ink:#e5ebe8; --ink-2:#9fb0ab; --rule:#2c3a3c; --rule-2:#212c2f; --pos:#4fbf85; --likely:#7ea6e8; --neg:#ef7b6a; --none:#67767a; color-scheme:dark; } }
 :root[data-theme="dark"] { --paper:#0f1519; --sheet:#151d22; --ink:#e5ebe8; --ink-2:#9fb0ab; --rule:#2c3a3c; --rule-2:#212c2f; --pos:#4fbf85; --likely:#7ea6e8; --neg:#ef7b6a; --none:#67767a; color-scheme:dark; }
+[hidden] { display:none !important }
 * { box-sizing:border-box } body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:16px; line-height:1.5 }
 .wrap { max-width:1000px; margin:0 auto; padding-block:28px 60px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)) }
 .sheet { background:var(--sheet); border:1px solid var(--rule); border-radius:3px; padding:clamp(18px,4vw,40px); display:grid; gap:26px }
